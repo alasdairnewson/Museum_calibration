@@ -7,10 +7,15 @@
 %1/ H : the homography matrix. Additionally, this matrix is automatically
 %saved in the 'models' directory
 
-function[H] = calibrate_ground(fileIn)
-
-    close all;
+function[H] = calibrate_ground(varargin)
+    close all;  
     addpath('2D_projection');
+    
+    if (nargin <1)
+        fileIn = 'Museum_front_resized.mp4';
+    else
+        fileIn = varargin{1};
+    end
     
     vidIn = VideoReader(fileIn);
     imgSize = [get(vidIn,'height'),get(vidIn,'width')];
