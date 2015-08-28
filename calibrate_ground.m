@@ -48,6 +48,6 @@ function[H] = calibrate_ground(fileIn)
     if (~exist('models','dir'))
         mkdir('models');
     end
-    save(['models/' fileIn '_homography.mat'],'H'); 
+    save(['models/' fileName '_homography.mat'],'H'); 
     disp('The homography estimation was carried out with success !');
 end
